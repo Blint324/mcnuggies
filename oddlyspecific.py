@@ -8,11 +8,11 @@ import webbrowser
 import random
 import matplotlib.pyplot as plt
 
-runmult = input("run multiple times? (y/n) (only works for rand) ")
+runmult = input("run multiple times? (y/n) (only works for rand and truerand) ")
 runmult.lower()
 if runmult == "y":
     runmulthowmany = input("how many times? ")
-type = input("rand, sub, div, fib or pi or add or mult ")
+type = input("truerand, rand, sub, div, fib or pi or add or mult ")
 type.lower()
 if type == "mult":
     multtimes = input("by how much bro?????????????? ")
@@ -24,6 +24,9 @@ if type == "rand":
     randmaxinc = input("maximum increment ")
     randmaxdec = input("maximum decrement (type a negative number or else it'll just keep going up) ")
     randstartnumber = input("starting number ")
+if type == "truerand":
+    truerandmax = input("maximum number ")
+    truerandmin = input("minimum number ")
 
 f = open("oddlyspecific.txt", "w")
 if type == "add":
@@ -123,6 +126,40 @@ elif type == "rand":
         xnum = 1
         number = randstartnumber
         plt.clf()
+elif type == "truerand":
+    if runmult == "y":
+        for n in range(int(runmulthowmany)):
+            for n in range(int(numbertimes)):
+                number = random.randint(int(truerandmin), int(truerandmax))
+                f.write(f"{number}, ")
+                xnum = xnum + 1
+                x.append(xnum)
+                y.append(number)
+            plt.plot(x, y)
+            plt.title("true rand nums")
+            plt.savefig(str(filename))
+            filename = filename + 1
+            x = [0]
+            y = [0]
+            xnum = 1
+            plt.clf()
+    else:
+        for n in range(int(numbertimes)):
+            number = random.randint(int(truerandmin), int(truerandmax))
+            f.write(f"{number}, ")
+            xnum = xnum + 1
+            x.append(xnum)
+            y.append(number)
+        plt.plot(x, y)
+        plt.title("truerand nums")
+        plt.show()
+        filename = filename + 1
+        x = [0]
+        y = [0]
+        xnum = 1
+        plt.clf()
 else:
     webbrowser.open("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+
+
 
