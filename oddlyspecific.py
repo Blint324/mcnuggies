@@ -2,13 +2,13 @@ number = 1
 import mpmath
 import webbrowser
 
-type = input("sub, fib or pi or add or mult ")
+type = input("sub, div, fib or pi or add or mult ")
 type.lower()
 if type == "mult":
     multtimes = input("by how much bro?????????????? ")
 numbertimes = input("how many times ")
-if type == "sub":
-    subtimes = input("ok but by how much ")
+if type == "sub" or type == "div":
+    times = input("ok but by how much ")
     number = input("whats da faken starten numba?")
 
 f = open("oddlyspecific.txt", "w")
@@ -39,6 +39,12 @@ elif type == "sub":
     for x in range(int(numbertimes)):
         f.write(f"{number}, ")
         number = int(number) - 1
+elif type == "div":
+    for x in range(int(numbertimes)):
+        f.write(f"{number}, ")
+        number = float(number) / float(times)
 else:
     webbrowser.open("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+
+
 
