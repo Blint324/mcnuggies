@@ -19,7 +19,7 @@ if type == "mult":
 numbertimes = input("how many times ")
 if type == "sub" or type == "div":
     times = input("ok but by how much ")
-    number = input("whats da faken starten numba?")
+    number = input("whats da faken starten numba? ")
 if type == "rand":
     randmaxinc = input("maximum increment ")
     randmaxdec = input("maximum decrement (type a negative number or else it'll just keep going up) ")
@@ -99,16 +99,30 @@ elif type == "rand":
                 y.append(number)
             plt.plot(x, y)
             plt.title("rand nums")
-            if runmult == "n":
-                plt.show()
-            elif runmult == "y":
-                plt.savefig(str(filename))
+            plt.savefig(str(filename))
             filename = filename + 1
             x = [0]
             y = [0]
             xnum = 1
             number = randstartnumber
             plt.clf()
+    else:
+        for n in range(int(numbertimes)):
+            f.write(f"{number}, ")
+            randamount = random.randint(int(randmaxdec), int(randmaxinc))
+            number = int(number) + int(randamount)
+            xnum = xnum + 1
+            x.append(xnum)
+            y.append(number)
+        plt.plot(x, y)
+        plt.title("rand nums")
+        plt.show()
+        filename = filename + 1
+        x = [0]
+        y = [0]
+        xnum = 1
+        number = randstartnumber
+        plt.clf()
 else:
     webbrowser.open("https://www.youtube.com/watch?v=xvFZjo5PgG0")
 
