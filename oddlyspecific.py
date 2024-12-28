@@ -41,3 +41,4 @@ elif type == "sub":
         number = int(number) - 1
 else:
     webbrowser.open("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+
