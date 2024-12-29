@@ -1,5 +1,3 @@
-import sys
-
 number = 1
 x = [0]
 y = [0]
@@ -8,14 +6,18 @@ xnum = 1
 import mpmath
 import webbrowser
 import random
+import sys
 import matplotlib.pyplot as plt
+import math
+import os
 sys.set_int_max_str_digits(999999999)
+
 
 runmult = input("run multiple times? (y/n) (only works for rand and truerand) ")
 runmult.lower()
 if runmult == "y":
     runmulthowmany = input("how many times? ")
-type = input("truerand, rand, sub, div, fib or pi or add or mult ")
+type = input("fact, truerand, rand, sub, div, fib or pi or add or mult ")
 type.lower()
 if type == "mult":
     multtimes = input("by how much bro?????????????? ")
@@ -31,7 +33,9 @@ if type == "truerand":
     truerandmax = input("maximum number ")
     truerandmin = input("minimum number ")
 
+print(f"{os.getcwd()}{os.sep}oddlyspecific.txt")
 f = open("oddlyspecific.txt", "w")
+
 if type == "add":
     for n in range(int(numbertimes)):
         f.write(f"{number}, ")
@@ -42,6 +46,7 @@ if type == "add":
     plt.plot(x, y)
     plt.title("add nums")
     plt.show()
+    f.close()
 elif type == "fib":
     prevnumber1 = 0
     prevnumber2 = 1
@@ -56,12 +61,14 @@ elif type == "fib":
     plt.plot(x, y)
     plt.title("add nums")
     plt.show()
+    f.close()
 elif type == "pi":
     digitspi = 1
     for n in range(int(numbertimes)):
         digitspi = digitspi + 1
         mpmath.mp.dps = digitspi
         f.write(f"{mpmath.mp.pi}, ")
+        f.close()
 elif type == "mult":
     for n in range(int(numbertimes)):
         f.write(f"{number}, ")
@@ -72,6 +79,7 @@ elif type == "mult":
     plt.plot(x, y)
     plt.title("mult nums")
     plt.show()
+    f.close()
 elif type == "sub":
     for n in range(int(numbertimes)):
         f.write(f"{number}, ")
@@ -82,6 +90,7 @@ elif type == "sub":
     plt.plot(x, y)
     plt.title("sub nums")
     plt.show()
+    f.close()
 elif type == "div":
     for n in range(int(numbertimes)):
         f.write(f"{number}, ")
@@ -92,6 +101,7 @@ elif type == "div":
     plt.plot(x, y)
     plt.title("div nums")
     plt.show()
+    f.close()
 elif type == "rand":
     if runmult == "y":
         number = randstartnumber
@@ -112,6 +122,7 @@ elif type == "rand":
             xnum = 1
             number = randstartnumber
             plt.clf()
+            f.close()
     else:
         for n in range(int(numbertimes)):
             f.write(f"{number}, ")
@@ -129,6 +140,7 @@ elif type == "rand":
         xnum = 1
         number = randstartnumber
         plt.clf()
+        f.close()
 elif type == "truerand":
     if runmult == "y":
         for n in range(int(runmulthowmany)):
@@ -146,6 +158,7 @@ elif type == "truerand":
             y = [0]
             xnum = 1
             plt.clf()
+            f.close()
     else:
         for n in range(int(numbertimes)):
             number = random.randint(int(truerandmin), int(truerandmax))
@@ -161,10 +174,25 @@ elif type == "truerand":
         y = [0]
         xnum = 1
         plt.clf()
+        f.close()
+elif type == "fact":
+    factcount = 1
+    for n in range(int(numbertimes)):
+        number = math.factorial(factcount)
+        f.write(f"{number}, ")
+        factcount = factcount + 1
+        xnum = xnum + 1
+        x.append(xnum)
+        y.append(number)
+    plt.plot(x, y)
+    plt.title("factorial nums")
+    plt.show()
+    filename = filename + 1
+    x = [0]
+    y = [0]
+    xnum = 1
+    plt.clf()
+    f.close()
 else:
     webbrowser.open("https://www.youtube.com/watch?v=xvFZjo5PgG0")
-
-
-
-
 
