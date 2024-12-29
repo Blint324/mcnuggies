@@ -1,3 +1,5 @@
+import sys
+
 number = 1
 x = [0]
 y = [0]
@@ -7,6 +9,7 @@ import mpmath
 import webbrowser
 import random
 import matplotlib.pyplot as plt
+sys.set_int_max_str_digits(999999999)
 
 runmult = input("run multiple times? (y/n) (only works for rand and truerand) ")
 runmult.lower()
@@ -160,6 +163,8 @@ elif type == "truerand":
         plt.clf()
 else:
     webbrowser.open("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+
+
 
 
 
