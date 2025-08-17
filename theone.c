@@ -7,7 +7,7 @@ int main() {
     for (int i = 0; msg[i] != '\0'; i++) {
         printf("%s%c", KGRN, msg[i]);
         fflush(stdout);
-        usleep(80000);
+        usleep(130000);
     }
     printf("\n");
     return 0;
